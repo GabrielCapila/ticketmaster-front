@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Relatório de Eventos</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="container">
+      <div class="header-row">
+        <div>
+          <h1>Relatório de Eventos</h1>
+          <div class="meta">
+            <span class="meta-label">Gerado em:</span>
+            <span id="generatedAt" class="meta-value">—</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="btnDownload" class="btn btn-secondary" type="button" disabled>
+            Download Excel
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" aria-label="Filtros">
+      <div class="card-title">Filtros</div>
+
+      <div class="filters-grid">
+        <div class="field">
+          <label for="searchText">Busca</label>
+          <input
+            id="searchText"
+            name="searchText"
+            type="text"
+            placeholder="Nome do evento, artista ou cidade"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="field">
+          <label for="filter">Status do Evento</label>
+          <select id="filter" name="filter">
+            <option value="Todos">Todos</option>
+            <option value="Em venda">Em venda</option>
+            <option value="Esgotado">Esgotado</option>
+            <option value="Cancelado">Cancelado</option>
+          </select>
+        </div>
+
+        <div class="field field-inline">
+          <label class="checkbox">
+            <input id="showFullReport" name="showFullReport" type="checkbox" />
+            <span>Mostrar relatório completo</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <div id="statusMessage" class="status" role="status" aria-live="polite"></div>
+        <div class="actions">
+          <button id="btnSearch" class="btn btn-primary" type="button">Buscar</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" aria-label="Resumo">
+      <div class="card-title">Resumo</div>
+      <div id="summaryTableContainer" class="table-container"></div>
+    </section>
+
+    <section class="card" aria-label="Relatório completo">
+      <div class="card-title">Completo</div>
+      <div id="detailsTableContainer" class="table-container"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
