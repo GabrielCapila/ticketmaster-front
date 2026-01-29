@@ -1,5 +1,5 @@
 /* Configuração */
-const API_BASE_URL = "/ticketmaster/api"; // ou http://localhost:5000
+const API_BASE_URL = "https://promptmasterguy.site/ticketmaster/api"; // ou http://localhost:5000
 
 let lastLoadedReport = null;
 let isBusy = false;
